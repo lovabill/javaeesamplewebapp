@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+>
+
+<ui:composition template="template.xhtml">
+    <ui:define name="content">
+        <h:messages/>
+        <h:form id="greetForm">
+            <h:panelGrid columns="3">
+                <h:outputLabel for="username">Enter username:</h:outputLabel>
+                <h:inputText id="username"
+                             value="#{userController.username}"/>
+                <h:message for="username"/>
+            </h:panelGrid>
+            <h:commandButton id="greet" value="Greet!"
+                             action="#{userController.greet}"/>
+        </h:form>
+        <h:outputText value="#{userController.greeting}"
+                      rendered="#{not empty userController.greeting}"/>
+        <br/>
+        <h:link outcome="/create.xhtml" value="Add a new user"/>
+    </ui:define>
+</ui:composition>
+</html>

@@ -29,6 +29,7 @@ public class UserController {
     @RequestScoped
     private User newUser = new User();
 
+
     public void create() {
         try {
             userService.createUser(newUser);
@@ -63,5 +64,9 @@ public class UserController {
 
     public void setGreeting(String greeting) {
         this.greeting = greeting;
+    }
+
+    public void sayHi() {
+        userService.sayHi();
     }
 }

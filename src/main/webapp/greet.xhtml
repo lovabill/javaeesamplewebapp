@@ -17,6 +17,8 @@
             </h:panelGrid>
             <h:commandButton id="greet" value="Greet!"
                              action="#{userController.greet}"/>
+            <h:commandButton id="hi" value="Say hi"
+                             action="#{userController.sayHi}"/>
         </h:form>
         <h:outputText value="#{userController.greeting}"
                       rendered="#{not empty userController.greeting}"/>

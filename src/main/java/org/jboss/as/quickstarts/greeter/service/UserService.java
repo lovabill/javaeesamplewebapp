@@ -2,6 +2,7 @@ package org.jboss.as.quickstarts.greeter.service;
 
 import org.jboss.as.quickstarts.greeter.domain.User;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -9,7 +10,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 @Stateless
-public class UserService {
+@LocalBean
+public class UserService implements UserServiceI {
 
     @Inject
     private EntityManager entityManager;
@@ -29,4 +31,7 @@ public class UserService {
         entityManager.persist(user);
     }
 
+    public void sayHi() {
+        System.out.println("Hi!!!!");
+    }
 }
